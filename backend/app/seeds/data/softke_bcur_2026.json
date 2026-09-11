@@ -1,0 +1,1009 @@
+{
+  "dataset_version": "softke_bcur_2026",
+  "ranking_source": "软科中国大学排名（主榜）",
+  "ranking_year": 2026,
+  "source_url": "https://www.shanghairanking.cn/rankings/bcur/202611",
+  "entries": [
+    {
+      "rank": 1,
+      "canonical_name": "清华大学",
+      "aliases": []
+    },
+    {
+      "rank": 2,
+      "canonical_name": "北京大学",
+      "aliases": []
+    },
+    {
+      "rank": 3,
+      "canonical_name": "浙江大学",
+      "aliases": []
+    },
+    {
+      "rank": 4,
+      "canonical_name": "上海交通大学",
+      "aliases": []
+    },
+    {
+      "rank": 5,
+      "canonical_name": "复旦大学",
+      "aliases": []
+    },
+    {
+      "rank": 6,
+      "canonical_name": "南京大学",
+      "aliases": []
+    },
+    {
+      "rank": 7,
+      "canonical_name": "中国科学技术大学",
+      "aliases": []
+    },
+    {
+      "rank": 8,
+      "canonical_name": "武汉大学",
+      "aliases": []
+    },
+    {
+      "rank": 9,
+      "canonical_name": "华中科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 10,
+      "canonical_name": "西安交通大学",
+      "aliases": []
+    },
+    {
+      "rank": 11,
+      "canonical_name": "北京航空航天大学",
+      "aliases": []
+    },
+    {
+      "rank": 12,
+      "canonical_name": "哈尔滨工业大学",
+      "aliases": []
+    },
+    {
+      "rank": 13,
+      "canonical_name": "中山大学",
+      "aliases": []
+    },
+    {
+      "rank": 14,
+      "canonical_name": "北京理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 15,
+      "canonical_name": "东南大学",
+      "aliases": []
+    },
+    {
+      "rank": 16,
+      "canonical_name": "四川大学",
+      "aliases": []
+    },
+    {
+      "rank": 17,
+      "canonical_name": "中国人民大学",
+      "aliases": []
+    },
+    {
+      "rank": 18,
+      "canonical_name": "同济大学",
+      "aliases": []
+    },
+    {
+      "rank": 19,
+      "canonical_name": "北京师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 20,
+      "canonical_name": "天津大学",
+      "aliases": []
+    },
+    {
+      "rank": 21,
+      "canonical_name": "南开大学",
+      "aliases": []
+    },
+    {
+      "rank": 22,
+      "canonical_name": "山东大学",
+      "aliases": []
+    },
+    {
+      "rank": 23,
+      "canonical_name": "西北工业大学",
+      "aliases": []
+    },
+    {
+      "rank": 24,
+      "canonical_name": "中国农业大学",
+      "aliases": []
+    },
+    {
+      "rank": 25,
+      "canonical_name": "厦门大学",
+      "aliases": []
+    },
+    {
+      "rank": 26,
+      "canonical_name": "吉林大学",
+      "aliases": []
+    },
+    {
+      "rank": 27,
+      "canonical_name": "中南大学",
+      "aliases": []
+    },
+    {
+      "rank": 28,
+      "canonical_name": "大连理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 29,
+      "canonical_name": "华东师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 30,
+      "canonical_name": "南方科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 31,
+      "canonical_name": "湖南大学",
+      "aliases": []
+    },
+    {
+      "rank": 32,
+      "canonical_name": "华南理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 33,
+      "canonical_name": "电子科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 34,
+      "canonical_name": "重庆大学",
+      "aliases": []
+    },
+    {
+      "rank": 35,
+      "canonical_name": "北京科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 36,
+      "canonical_name": "南京理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 37,
+      "canonical_name": "南京航空航天大学",
+      "aliases": []
+    },
+    {
+      "rank": 38,
+      "canonical_name": "东北大学",
+      "aliases": []
+    },
+    {
+      "rank": 39,
+      "canonical_name": "西安电子科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 40,
+      "canonical_name": "兰州大学",
+      "aliases": []
+    },
+    {
+      "rank": 41,
+      "canonical_name": "北京交通大学",
+      "aliases": []
+    },
+    {
+      "rank": 42,
+      "canonical_name": "华东理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 43,
+      "canonical_name": "哈尔滨工程大学",
+      "aliases": []
+    },
+    {
+      "rank": 44,
+      "canonical_name": "郑州大学",
+      "aliases": []
+    },
+    {
+      "rank": 45,
+      "canonical_name": "华中农业大学",
+      "aliases": []
+    },
+    {
+      "rank": 46,
+      "canonical_name": "苏州大学",
+      "aliases": []
+    },
+    {
+      "rank": 47,
+      "canonical_name": "上海科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 48,
+      "canonical_name": "东北师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 49,
+      "canonical_name": "西南交通大学",
+      "aliases": []
+    },
+    {
+      "rank": 50,
+      "canonical_name": "北京邮电大学",
+      "aliases": []
+    },
+    {
+      "rank": 51,
+      "canonical_name": "中国海洋大学",
+      "aliases": []
+    },
+    {
+      "rank": 52,
+      "canonical_name": "江南大学",
+      "aliases": []
+    },
+    {
+      "rank": 53,
+      "canonical_name": "华中师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 54,
+      "canonical_name": "武汉理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 55,
+      "canonical_name": "南京农业大学",
+      "aliases": []
+    },
+    {
+      "rank": 56,
+      "canonical_name": "中国地质大学（武汉）",
+      "aliases": []
+    },
+    {
+      "rank": 57,
+      "canonical_name": "北京化工大学",
+      "aliases": []
+    },
+    {
+      "rank": 58,
+      "canonical_name": "南京师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 59,
+      "canonical_name": "暨南大学",
+      "aliases": []
+    },
+    {
+      "rank": 60,
+      "canonical_name": "上海大学",
+      "aliases": []
+    },
+    {
+      "rank": 61,
+      "canonical_name": "西南大学",
+      "aliases": []
+    },
+    {
+      "rank": 62,
+      "canonical_name": "中国石油大学（北京）",
+      "aliases": []
+    },
+    {
+      "rank": 63,
+      "canonical_name": "河海大学",
+      "aliases": []
+    },
+    {
+      "rank": 63,
+      "canonical_name": "陕西师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 65,
+      "canonical_name": "北京工业大学",
+      "aliases": []
+    },
+    {
+      "rank": 66,
+      "canonical_name": "深圳大学",
+      "aliases": []
+    },
+    {
+      "rank": 67,
+      "canonical_name": "中国矿业大学",
+      "aliases": []
+    },
+    {
+      "rank": 68,
+      "canonical_name": "浙江工业大学",
+      "aliases": []
+    },
+    {
+      "rank": 69,
+      "canonical_name": "西北农林科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 70,
+      "canonical_name": "西北大学",
+      "aliases": []
+    },
+    {
+      "rank": 71,
+      "canonical_name": "云南大学",
+      "aliases": []
+    },
+    {
+      "rank": 72,
+      "canonical_name": "东华大学",
+      "aliases": []
+    },
+    {
+      "rank": 73,
+      "canonical_name": "中国石油大学（华东）",
+      "aliases": []
+    },
+    {
+      "rank": 74,
+      "canonical_name": "南昌大学",
+      "aliases": []
+    },
+    {
+      "rank": 75,
+      "canonical_name": "中国地质大学（北京）",
+      "aliases": []
+    },
+    {
+      "rank": 76,
+      "canonical_name": "中国矿业大学（北京）",
+      "aliases": []
+    },
+    {
+      "rank": 77,
+      "canonical_name": "福州大学",
+      "aliases": []
+    },
+    {
+      "rank": 78,
+      "canonical_name": "宁波大学",
+      "aliases": []
+    },
+    {
+      "rank": 79,
+      "canonical_name": "华南师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 80,
+      "canonical_name": "合肥工业大学",
+      "aliases": []
+    },
+    {
+      "rank": 81,
+      "canonical_name": "江苏大学",
+      "aliases": []
+    },
+    {
+      "rank": 82,
+      "canonical_name": "南京邮电大学",
+      "aliases": []
+    },
+    {
+      "rank": 83,
+      "canonical_name": "北京林业大学",
+      "aliases": []
+    },
+    {
+      "rank": 84,
+      "canonical_name": "华北电力大学",
+      "aliases": []
+    },
+    {
+      "rank": 85,
+      "canonical_name": "贵州大学",
+      "aliases": []
+    },
+    {
+      "rank": 86,
+      "canonical_name": "广西大学",
+      "aliases": []
+    },
+    {
+      "rank": 87,
+      "canonical_name": "海南大学",
+      "aliases": []
+    },
+    {
+      "rank": 88,
+      "canonical_name": "南京工业大学",
+      "aliases": []
+    },
+    {
+      "rank": 89,
+      "canonical_name": "长安大学",
+      "aliases": []
+    },
+    {
+      "rank": 90,
+      "canonical_name": "福建师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 91,
+      "canonical_name": "浙江师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 92,
+      "canonical_name": "湖南师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 93,
+      "canonical_name": "南京林业大学",
+      "aliases": []
+    },
+    {
+      "rank": 93,
+      "canonical_name": "扬州大学",
+      "aliases": []
+    },
+    {
+      "rank": 95,
+      "canonical_name": "河南大学",
+      "aliases": []
+    },
+    {
+      "rank": 96,
+      "canonical_name": "广东工业大学",
+      "aliases": []
+    },
+    {
+      "rank": 97,
+      "canonical_name": "太原理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 98,
+      "canonical_name": "南京信息工程大学",
+      "aliases": []
+    },
+    {
+      "rank": 99,
+      "canonical_name": "杭州电子科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 100,
+      "canonical_name": "首都师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 101,
+      "canonical_name": "安徽大学",
+      "aliases": []
+    },
+    {
+      "rank": 102,
+      "canonical_name": "山西大学",
+      "aliases": []
+    },
+    {
+      "rank": 103,
+      "canonical_name": "华南农业大学",
+      "aliases": []
+    },
+    {
+      "rank": 104,
+      "canonical_name": "山东师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 105,
+      "canonical_name": "广州大学",
+      "aliases": []
+    },
+    {
+      "rank": 106,
+      "canonical_name": "上海理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 107,
+      "canonical_name": "河北工业大学",
+      "aliases": []
+    },
+    {
+      "rank": 108,
+      "canonical_name": "青岛大学",
+      "aliases": []
+    },
+    {
+      "rank": 109,
+      "canonical_name": "燕山大学",
+      "aliases": []
+    },
+    {
+      "rank": 110,
+      "canonical_name": "昆明理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 111,
+      "canonical_name": "西安理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 112,
+      "canonical_name": "浙江理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 113,
+      "canonical_name": "大连海事大学",
+      "aliases": []
+    },
+    {
+      "rank": 114,
+      "canonical_name": "内蒙古大学",
+      "aliases": []
+    },
+    {
+      "rank": 115,
+      "canonical_name": "东北林业大学",
+      "aliases": []
+    },
+    {
+      "rank": 116,
+      "canonical_name": "杭州师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 117,
+      "canonical_name": "湘潭大学",
+      "aliases": []
+    },
+    {
+      "rank": 118,
+      "canonical_name": "西安建筑科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 119,
+      "canonical_name": "西南石油大学",
+      "aliases": []
+    },
+    {
+      "rank": 120,
+      "canonical_name": "东北农业大学",
+      "aliases": []
+    },
+    {
+      "rank": 121,
+      "canonical_name": "湖北大学",
+      "aliases": []
+    },
+    {
+      "rank": 122,
+      "canonical_name": "福建农林大学",
+      "aliases": []
+    },
+    {
+      "rank": 123,
+      "canonical_name": "上海师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 123,
+      "canonical_name": "武汉科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 125,
+      "canonical_name": "辽宁大学",
+      "aliases": []
+    },
+    {
+      "rank": 126,
+      "canonical_name": "江西师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 127,
+      "canonical_name": "成都理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 128,
+      "canonical_name": "山东农业大学",
+      "aliases": []
+    },
+    {
+      "rank": 129,
+      "canonical_name": "温州大学",
+      "aliases": []
+    },
+    {
+      "rank": 130,
+      "canonical_name": "河北大学",
+      "aliases": []
+    },
+    {
+      "rank": 131,
+      "canonical_name": "新疆大学",
+      "aliases": []
+    },
+    {
+      "rank": 132,
+      "canonical_name": "陕西科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 133,
+      "canonical_name": "天津工业大学",
+      "aliases": []
+    },
+    {
+      "rank": 134,
+      "canonical_name": "四川农业大学",
+      "aliases": []
+    },
+    {
+      "rank": 135,
+      "canonical_name": "长沙理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 135,
+      "canonical_name": "石河子大学",
+      "aliases": []
+    },
+    {
+      "rank": 137,
+      "canonical_name": "宁夏大学",
+      "aliases": []
+    },
+    {
+      "rank": 138,
+      "canonical_name": "长春理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 139,
+      "canonical_name": "华侨大学",
+      "aliases": []
+    },
+    {
+      "rank": 140,
+      "canonical_name": "山东科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 141,
+      "canonical_name": "江苏科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 142,
+      "canonical_name": "上海海洋大学",
+      "aliases": []
+    },
+    {
+      "rank": 143,
+      "canonical_name": "安徽农业大学",
+      "aliases": []
+    },
+    {
+      "rank": 144,
+      "canonical_name": "中北大学",
+      "aliases": []
+    },
+    {
+      "rank": 145,
+      "canonical_name": "安徽师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 145,
+      "canonical_name": "河南农业大学",
+      "aliases": []
+    },
+    {
+      "rank": 147,
+      "canonical_name": "重庆邮电大学",
+      "aliases": []
+    },
+    {
+      "rank": 147,
+      "canonical_name": "南通大学",
+      "aliases": []
+    },
+    {
+      "rank": 149,
+      "canonical_name": "广西师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 149,
+      "canonical_name": "浙江农林大学",
+      "aliases": []
+    },
+    {
+      "rank": 151,
+      "canonical_name": "齐鲁工业大学",
+      "aliases": []
+    },
+    {
+      "rank": 151,
+      "canonical_name": "中国计量大学",
+      "aliases": []
+    },
+    {
+      "rank": 153,
+      "canonical_name": "沈阳农业大学",
+      "aliases": []
+    },
+    {
+      "rank": 154,
+      "canonical_name": "西北师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 155,
+      "canonical_name": "黑龙江大学",
+      "aliases": []
+    },
+    {
+      "rank": 156,
+      "canonical_name": "集美大学",
+      "aliases": []
+    },
+    {
+      "rank": 157,
+      "canonical_name": "延边大学",
+      "aliases": []
+    },
+    {
+      "rank": 158,
+      "canonical_name": "天津科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 159,
+      "canonical_name": "武汉纺织大学",
+      "aliases": []
+    },
+    {
+      "rank": 160,
+      "canonical_name": "天津师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 161,
+      "canonical_name": "吉林农业大学",
+      "aliases": []
+    },
+    {
+      "rank": 162,
+      "canonical_name": "湖北工业大学",
+      "aliases": []
+    },
+    {
+      "rank": 162,
+      "canonical_name": "辽宁师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 164,
+      "canonical_name": "曲阜师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 165,
+      "canonical_name": "常州大学",
+      "aliases": []
+    },
+    {
+      "rank": 166,
+      "canonical_name": "湖南农业大学",
+      "aliases": []
+    },
+    {
+      "rank": 167,
+      "canonical_name": "青岛科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 168,
+      "canonical_name": "河南师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 169,
+      "canonical_name": "武汉工程大学",
+      "aliases": []
+    },
+    {
+      "rank": 170,
+      "canonical_name": "天津理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 171,
+      "canonical_name": "上海海事大学",
+      "aliases": []
+    },
+    {
+      "rank": 172,
+      "canonical_name": "江苏师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 173,
+      "canonical_name": "汕头大学",
+      "aliases": []
+    },
+    {
+      "rank": 174,
+      "canonical_name": "三峡大学",
+      "aliases": []
+    },
+    {
+      "rank": 175,
+      "canonical_name": "济南大学",
+      "aliases": []
+    },
+    {
+      "rank": 176,
+      "canonical_name": "河南科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 177,
+      "canonical_name": "河北师范大学",
+      "aliases": []
+    },
+    {
+      "rank": 178,
+      "canonical_name": "北京建筑大学",
+      "aliases": []
+    },
+    {
+      "rank": 179,
+      "canonical_name": "沈阳航空航天大学",
+      "aliases": []
+    },
+    {
+      "rank": 180,
+      "canonical_name": "安徽理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 181,
+      "canonical_name": "南昌航空大学",
+      "aliases": []
+    },
+    {
+      "rank": 182,
+      "canonical_name": "北京信息科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 183,
+      "canonical_name": "桂林电子科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 184,
+      "canonical_name": "长江大学",
+      "aliases": []
+    },
+    {
+      "rank": 185,
+      "canonical_name": "国际关系学院",
+      "aliases": []
+    },
+    {
+      "rank": 186,
+      "canonical_name": "西安科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 187,
+      "canonical_name": "青岛理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 188,
+      "canonical_name": "上海电力大学",
+      "aliases": []
+    },
+    {
+      "rank": 189,
+      "canonical_name": "河北农业大学",
+      "aliases": []
+    },
+    {
+      "rank": 189,
+      "canonical_name": "湖南科技大学",
+      "aliases": []
+    },
+    {
+      "rank": 191,
+      "canonical_name": "重庆交通大学",
+      "aliases": []
+    },
+    {
+      "rank": 192,
+      "canonical_name": "兰州交通大学",
+      "aliases": []
+    },
+    {
+      "rank": 193,
+      "canonical_name": "安徽工业大学",
+      "aliases": []
+    },
+    {
+      "rank": 194,
+      "canonical_name": "河南理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 194,
+      "canonical_name": "华东交通大学",
+      "aliases": []
+    },
+    {
+      "rank": 196,
+      "canonical_name": "西安邮电大学",
+      "aliases": []
+    },
+    {
+      "rank": 197,
+      "canonical_name": "山东理工大学",
+      "aliases": []
+    },
+    {
+      "rank": 198,
+      "canonical_name": "南华大学",
+      "aliases": []
+    },
+    {
+      "rank": 198,
+      "canonical_name": "沈阳工业大学",
+      "aliases": []
+    },
+    {
+      "rank": 198,
+      "canonical_name": "云南师范大学",
+      "aliases": []
+    }
+  ]
+}
+

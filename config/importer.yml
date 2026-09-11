@@ -1,0 +1,33 @@
+# Docker 容器内工作目录，通常不要修改。宿主机实际目录在 .env 的
+# IMPORTER_WORKSPACE_DIR 中配置，并由 docker-compose.yml 挂载到此目录。
+workspace_dir: /import-data
+
+# Docker 内部后端地址，使用 Compose 服务名，通常不要修改。
+backend:
+  base_url: http://backend:8000/api/v1
+
+file_rules:
+  # 每个候选人文件夹必须恰好有一份 PDF 匹配以下任一简历规则。
+  resume:
+    - "简历.pdf"
+    - "*简历*.pdf"
+    - "resume.pdf"
+    - "*resume*.pdf"
+  # 可选的资料分类规则。未匹配的 PDF 会以 other 类型上传。
+  # 分类键必须是后端已支持的类型；在此增加新名称不会自动创建新类型。
+  categories:
+    academic_transcript:
+      - "*成绩单*.pdf"
+      - "*transcript*.pdf"
+    certificate:
+      - "*证书*.pdf"
+      - "*certificate*.pdf"
+    portfolio:
+      - "*作品集*.pdf"
+      - "*portfolio*.pdf"
+    psychological_assessment:
+      - "*心理测评*.pdf"
+      - "*psychological assessment*.pdf"
+
+# 调用招聘系统接口的超时时间（秒），通常保留默认值。
+request_timeout_seconds: 60

@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .admin-input {
+    @apply h-10 w-full rounded-md border border-line bg-white px-3 text-sm text-ink;
+  }
+
+  .data-table th {
+    @apply h-11 whitespace-nowrap align-middle font-medium;
+  }
+
+  .data-table td {
+    @apply align-top leading-5;
+  }
+
+  .data-table-fixed {
+    @apply table-fixed;
+  }
+
+  .data-table-primary {
+    @apply truncate font-medium text-ink;
+  }
+
+  .data-table-secondary {
+    @apply mt-0.5 truncate text-xs leading-5 text-muted;
+  }
+
+  .data-table-action {
+    @apply whitespace-nowrap text-center;
+  }
+
+  .data-table-action > * {
+    @apply mx-auto;
+  }
+
+  .data-table-number {
+    @apply whitespace-nowrap text-right tabular-nums;
+  }
+}
+
+:root {
+  color: #152238;
+  background: #f7f9fc;
+  font-family:
+    Inter, "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  --tw-ring-offset-shadow: 0 0 #0000 !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+}
+
+.app-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.app-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}

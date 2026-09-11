@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "required": ["project_id", "project_pao", "activated_indicators"],
+  "additionalProperties": false,
+  "properties": {
+    "project_id": {"type": "string", "minLength": 1},
+    "project_pao": {
+      "type": "object",
+      "required": ["problem", "approach", "outcome"],
+      "additionalProperties": false,
+      "properties": {
+        "problem": {"$ref": "#/$defs/paoPart"},
+        "approach": {"$ref": "#/$defs/paoPart"},
+        "outcome": {"$ref": "#/$defs/paoPart"}
+      }
+    },
+    "activated_indicators": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/indicatorResult"}
+    }
+  },
+  "$defs": {
+    "indicatorResult": {
+      "type": "object",
+      "required": ["indicator_id", "level", "reason"],
+      "additionalProperties": false,
+      "properties": {
+        "indicator_id": {"type": "string", "minLength": 1},
+        "level": {"type": "integer", "minimum": 1, "maximum": 5},
+        "reason": {"type": "string", "minLength": 1, "maxLength": 300}
+      }
+    },
+    "paoPart": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "required": ["summary", "work_unit_ids", "evidence_work_unit_ids"],
+          "additionalProperties": false,
+          "properties": {
+            "summary": {"type": "string", "minLength": 1, "maxLength": 500},
+            "work_unit_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+            "evidence_work_unit_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+          }
+        }
+      ]
+    }
+  }
+}

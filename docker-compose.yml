@@ -1,0 +1,152 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?POSTGRES_DB is required}
+      POSTGRES_USER: ${POSTGRES_USER:?POSTGRES_USER is required}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?MINIO_ROOT_USER is required}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?MINIO_ROOT_PASSWORD is required}
+    ports:
+      - "19000:9000"
+      - "19001:9001"
+    volumes:
+      - minio_data:/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+      args:
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.tuna.tsinghua.edu.cn/simple}
+    environment:
+      APP_ENV: ${APP_ENV:-development}
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
+      MINIO_BUCKET: ${MINIO_BUCKET:-recruit-ai}
+      STORAGE_BACKEND: minio
+      ALLOW_STORAGE_FALLBACK: "0"
+      AUTH_SECRET_KEY: ${AUTH_SECRET_KEY:?AUTH_SECRET_KEY is required}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://127.0.0.1:5173,http://localhost:5173}
+      DEPARTMENT_MANAGER_PASSWORD: ${DEPARTMENT_MANAGER_PASSWORD:?DEPARTMENT_MANAGER_PASSWORD is required}
+      DEPARTMENT_RECRUITER_PASSWORD: ${DEPARTMENT_RECRUITER_PASSWORD:?DEPARTMENT_RECRUITER_PASSWORD is required}
+      HR_PASSWORD: ${HR_PASSWORD:?HR_PASSWORD is required}
+      WORKFLOW_EXECUTION_MODE: queued
+      # 容器内迁移由 backend-entrypoint 执行；主机工作树中的 Alembic 会被 env.py 拒绝。
+      RECRUIT_SYSTEM_MIGRATION_CONTEXT: container
+      RECRUIT_SYSTEM_MIGRATION_ALLOWED_DATABASE: ${RECRUIT_SYSTEM_MIGRATION_ALLOWED_DATABASE:-recruit_ai}
+      RECRUIT_LLM_CONFIG_PATH: /app/config/llm.local.json
+      DOCUMENT_PARSER_BACKEND: ${DOCUMENT_PARSER_BACKEND:-auto}
+    volumes:
+      - ./config/llm.local.json:/app/config/llm.local.json:ro
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready')"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    depends_on:
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_started
+
+  worker:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+      args:
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.tuna.tsinghua.edu.cn/simple}
+    command: ["python", "-m", "backend.app.workers.workflow_worker"]
+    restart: unless-stopped
+    environment:
+      APP_ENV: ${APP_ENV:-development}
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
+      MINIO_BUCKET: ${MINIO_BUCKET:-recruit-ai}
+      STORAGE_BACKEND: minio
+      ALLOW_STORAGE_FALLBACK: "0"
+      AUTH_SECRET_KEY: ${AUTH_SECRET_KEY:?AUTH_SECRET_KEY is required}
+      DEPARTMENT_MANAGER_PASSWORD: ${DEPARTMENT_MANAGER_PASSWORD:?DEPARTMENT_MANAGER_PASSWORD is required}
+      DEPARTMENT_RECRUITER_PASSWORD: ${DEPARTMENT_RECRUITER_PASSWORD:?DEPARTMENT_RECRUITER_PASSWORD is required}
+      HR_PASSWORD: ${HR_PASSWORD:?HR_PASSWORD is required}
+      WORKFLOW_EXECUTION_MODE: queued
+      # 容器内迁移由 backend-entrypoint 执行；主机工作树中的 Alembic 会被 env.py 拒绝。
+      RECRUIT_SYSTEM_MIGRATION_CONTEXT: container
+      RECRUIT_SYSTEM_MIGRATION_ALLOWED_DATABASE: ${RECRUIT_SYSTEM_MIGRATION_ALLOWED_DATABASE:-recruit_ai}
+      RECRUIT_LLM_CONFIG_PATH: /app/config/llm.local.json
+      WORKFLOW_WORKER_POLL_SECONDS: "2"
+      WORKFLOW_WORKER_LEASE_SECONDS: "120"
+      WORKFLOW_WORKER_MAX_ATTEMPTS: "3"
+      # 初筛已在单份简历内按活动串行恢复；Worker 并发默认设为 4；如外部模型限流，可通过环境变量下调。
+      WORKFLOW_WORKER_CONCURRENCY: "4"
+      DOCUMENT_PARSER_BACKEND: ${DOCUMENT_PARSER_BACKEND:-auto}
+    volumes:
+      - ./config/llm.local.json:/app/config/llm.local.json:ro
+    depends_on:
+      backend:
+        condition: service_healthy
+      minio:
+        condition: service_started
+
+  importer:
+    build:
+      context: .
+      dockerfile: docker/importer.Dockerfile
+      args:
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.tuna.tsinghua.edu.cn/simple}
+    restart: unless-stopped
+    environment:
+      IMPORTER_CONFIG_PATH: /app/config/importer.yml
+      IMPORTER_USERNAME: ${IMPORTER_USERNAME:-hr}
+      IMPORTER_PASSWORD: ${IMPORTER_PASSWORD:-${HR_PASSWORD}}
+      IMPORTER_API_KEY: ${IMPORTER_API_KEY:-${AUTH_SECRET_KEY}}
+      IMPORTER_LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    volumes:
+      - ./config/importer.yml:/app/config/importer.yml:ro
+      - "${IMPORTER_WORKSPACE_DIR:-./import-data}:/import-data"
+    ports:
+      - "8010:8010"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8010/health')"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+      args:
+        NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmmirror.com}
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://127.0.0.1:8000/api/v1}
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+  minio_data:

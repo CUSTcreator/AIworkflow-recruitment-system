@@ -1,0 +1,136 @@
+{
+  "enabled": false,
+  "provider": "openai_compatible",
+  "base_url": "https://YOUR_CHAT_PROVIDER/v1",
+  "api_key": "YOUR_CHAT_API_KEY",
+  "model": "YOUR_CHAT_MODEL",
+  "embedding_base_url": "https://YOUR_EMBEDDING_PROVIDER/v1",
+  "embedding_api_key": "YOUR_EMBEDDING_API_KEY",
+  "embedding_model": "YOUR_EMBEDDING_MODEL",
+  "embedding_batch_size": 10,
+  "timeout_seconds": 60,
+  "temperature": 0.1,
+  "top_p": 1,
+  "json_mode": true,
+  "strict_json_schema": false,
+  "fail_open": true,
+  "workflows": {
+    "hard_screening": {
+      "enabled": true,
+      "temperature": 0,
+      "strict_json_schema": false
+    },
+    "screening_scoring": {
+      "enabled": true
+    },
+    "job_capability": {
+      "enabled": true,
+      "temperature": 0,
+      "top_p": 1,
+      "strict_json_schema": false,
+      "timeout_seconds": 120
+    },
+    "job_document_extraction": {
+      "enabled": true,
+      "temperature": 0,
+      "strict_json_schema": false,
+      "timeout_seconds": 120
+    },
+    "job_document_header_repair": {
+      "enabled": true,
+      "temperature": 0,
+      "strict_json_schema": false,
+      "timeout_seconds": 90
+    },
+    "job_document_field_repair": {
+      "enabled": true,
+      "temperature": 0,
+      "strict_json_schema": false,
+      "timeout_seconds": 90
+    },
+    "resume_document_extraction": {
+      "enabled": true,
+      "temperature": 0,
+      "strict_json_schema": false,
+      "timeout_seconds": 120
+    },
+    "resume_structure_repair": {
+      "enabled": true,
+      "temperature": 0,
+      "strict_json_schema": false,
+      "thinking_mode": "disabled",
+      "timeout_seconds": 90
+    },
+    "resume_work_unit_extraction": {
+      "enabled": true,
+      "temperature": 0,
+      "strict_json_schema": false,
+      "thinking_mode": "disabled",
+      "timeout_seconds": 90
+    },
+    "resume_skill_claim_extraction": {
+      "enabled": true,
+      "temperature": 0,
+      "strict_json_schema": false,
+      "thinking_mode": "disabled",
+      "timeout_seconds": 90
+    },
+    "resume_experience_assessment": {
+      "enabled": true
+    },
+    "first_interview_planning": {
+      "enabled": true
+    },
+    "post_first_scoring": {
+      "enabled": true
+    },
+    "post_second_scoring": {
+      "enabled": true
+    }
+  },
+  "execution": {
+    "global_llm_max_in_flight": 12
+  },
+  "resume_experience": {
+    "indicator_batch_size": 8,
+    "strict_json_schema": false
+  },
+  "job_capability": {},
+  "document_parsing": {
+    "fallback_to_local": true,
+    "mineru": {
+      "base_url": "https://mineru.net",
+      "api_key": "YOUR_MINERU_API_KEY",
+      "model_version": "vlm",
+      "timeout_seconds": 300,
+      "request_timeout_seconds": 30,
+      "enable_formula": false,
+      "enable_table": true,
+      "language": "ch",
+      "max_result_bytes": 104857600
+    },
+    "vision_llm": {
+      "enabled": false,
+      "base_url": "https://YOUR_VISION_PROVIDER/v1",
+      "api_key": "YOUR_VISION_API_KEY",
+      "model": "YOUR_VISION_MODEL",
+      "timeout_seconds": 180,
+      "dpi": 144,
+      "max_pages": 20,
+      "enable_thinking": false,
+      "response_format": "json_object"
+    },
+    "comparison": {
+      "content_recall_threshold": 0.92,
+      "reverse_content_recall_threshold": 0.85,
+      "critical_token_recall_threshold": 0.98,
+      "numeric_token_recall_threshold": 0.98,
+      "minimum_length_ratio": 0.75,
+      "maximum_length_ratio": 1.3,
+      "hard_content_recall_threshold": 0.72,
+      "hard_reverse_content_recall_threshold": 0.6,
+      "hard_minimum_length_ratio": 0.45,
+      "hard_maximum_length_ratio": 2.5
+    }
+  }
+}

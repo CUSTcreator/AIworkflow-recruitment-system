@@ -1,0 +1,45 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local runtime configuration. Do not commit real API keys.
+config/llm.local.json
+.env
+.env.*
+!.env.example
+
+# Frontend dependencies and generated bundles.
+frontend/node_modules/
+frontend/dist/
+frontend/playwright-report/
+frontend/test-results/
+# Local resume preview generated during testing. Contains personal data.
+frontend/public/resume-pages/
+
+# Local databases, object storage, logs and backups.
+*.db
+*.sqlite
+*.sqlite3
+*.log
+local_object_store/
+backups/
+
+# Generated test and validation artifacts.
+.tmp/
+tmp/
+.test_tmp_*/
+validation_results/
+.agents/
+
+# Local candidate files, editor settings and Codex temporary workspaces.
+import-data/
+.vscode/
+.codex-*/
+.tmp-*/
+temp_codex_test.txt

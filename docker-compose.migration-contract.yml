@@ -1,0 +1,65 @@
+# This Compose file is intentionally isolated from docker-compose.yml.  It proves
+# that the current migration head can initialize a blank PostgreSQL database
+# without connecting to the developer database or creating a persistent volume.
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: recruit_migration_contract
+      POSTGRES_USER: migration_contract
+      POSTGRES_PASSWORD: migration_contract_password
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U migration_contract -d recruit_migration_contract"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+
+  migration:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+    environment:
+      APP_ENV: test
+      DATABASE_URL: postgresql+psycopg://migration_contract:migration_contract_password@postgres:5432/recruit_migration_contract
+      STORAGE_BACKEND: local
+      ALLOW_STORAGE_FALLBACK: "1"
+      LOCAL_OBJECT_STORE_DIR: /tmp/recruit_migration_contract_objects
+      AUTH_SECRET_KEY: migration-contract-only-secret
+      DEPARTMENT_MANAGER_PASSWORD: migration-contract-password
+      DEPARTMENT_RECRUITER_PASSWORD: migration-contract-password
+      HR_PASSWORD: migration-contract-password
+      WORKFLOW_EXECUTION_MODE: queued
+      RECRUIT_SYSTEM_MIGRATION_CONTEXT: container
+      RECRUIT_SYSTEM_MIGRATION_ALLOWED_DATABASE: recruit_migration_contract
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command:
+      - python
+      - -c
+      - |
+        import subprocess
+        from sqlalchemy import create_engine, inspect, text
+        from backend.app.core.config import settings
+
+        # The entrypoint has already upgraded once.  Repeat it to prove that head
+        # is idempotent before checking the schema needed by the application.
+        subprocess.run(
+            ["python", "-m", "alembic", "-c", "backend/alembic.ini", "upgrade", "head"],
+            check=True,
+        )
+        engine = create_engine(settings.database_url)
+        with engine.connect() as connection:
+            version = connection.execute(text("SELECT version_num FROM alembic_version")).scalar_one()
+            tables = set(inspect(connection).get_table_names())
+        expected_tables = {"users", "jobs", "job_versions", "resume_submissions", "applications", "workflow_runs"}
+        missing_tables = expected_tables - tables
+        # Keep this explicit so a newly added migration must update the isolated
+        # initialization contract instead of silently weakening its head check.
+        if version != "103_remove_candidate_view_permission" or missing_tables:
+            raise SystemExit(
+                f"migration_contract_failed version={version!r} missing_tables={sorted(missing_tables)!r}"
+            )
+        print(f"migration_contract_passed version={version} tables={len(tables)}")

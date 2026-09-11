@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["sections", "projects", "unresolved_block_ids"],
+  "properties": {
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["section_type", "block_ids"],
+        "properties": {
+          "section_type": {
+            "type": "string",
+            "enum": ["profile", "education", "skills", "experience", "honors", "qualification", "other"]
+          },
+          "block_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {"type": "string"}
+          }
+        }
+      }
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title_block_ids", "content_block_ids"],
+        "properties": {
+          "title_block_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {"type": "string"}
+          },
+          "content_block_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {"type": "string"}
+          }
+        }
+      }
+    },
+    "unresolved_block_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    }
+  }
+}
